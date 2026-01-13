@@ -52,7 +52,7 @@ s3-rds-glue-project/
 ### 1. Create S3 Bucket
 Upload a CSV file.
 
-Example: students.csv
+Example: data.csv
 
 ```
 id,name,age,city
@@ -62,7 +62,8 @@ id,name,age,city
 ```
 
 ---
-
+![screenshot](./screenshot/1.png)
+![screenshot](./screenshot/2.png)
 ### 2. Create RDS MySQL Database
 - Engine: MySQL
 - DB Name: testdb
@@ -75,10 +76,10 @@ id,name,age,city
 ### 3. Create Glue Database
 Go to AWS Glue → Databases → Create Database
 
-Name: fallback_db
+Name: mydb
 
 ---
-
+![screenshot](./screenshot/3.png)
 ### 4. IAM Permissions Required
 - AmazonS3FullAccess
 - AmazonRDSFullAccess
@@ -203,6 +204,7 @@ docker build -t s3-rds-glue .
 ```
 
 ---
+![screenshot](./screenshot/5.png)
 
 ## Step 6: Run Docker Container
 
@@ -211,7 +213,7 @@ docker run -e AWS_ACCESS_KEY_ID=xxxx -e AWS_SECRET_ACCESS_KEY=xxxx -e AWS_REGION
 ```
 
 ---
-
+![screenshot](./screenshot/6.png)
 ## Step 7: Output
 
 ### If RDS Works
@@ -234,12 +236,12 @@ Glue table created successfully!
 ```
 SELECT * FROM students;
 ```
-
+![screenshot](./screenshot/op.png)
 ### Glue
 AWS Glue → Databases → fallback_db → Tables
 
 ---
-
+![screenshot](./screenshot/6.png)
 ## Challenges Faced
 - IAM permission issues
 - RDS connectivity
